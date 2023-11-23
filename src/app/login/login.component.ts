@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       const mdp = "123456";
 
       if (this.login === login && this.mdp === mdp ) {
-        this.toastr.success("Connexion réussie'", "Bienvenue!");
+        this.toastr.success("Connexion réussie", "Bienvenue!");
         console.log('Bienvenue');
         this.router.navigate(['/pageaccueil']);
       }
