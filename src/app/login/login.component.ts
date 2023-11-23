@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit {
     else {
       const login = "Amina";
       const mdp = "123456";
-
       if (this.login === login && this.mdp === mdp ) {
         this.toastr.success("Connexion réussie", "Bienvenue!");
         console.log('Bienvenue');
