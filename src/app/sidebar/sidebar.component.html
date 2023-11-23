@@ -1,0 +1,111 @@
+<div id="page-top" nav *ngIf="router.url !== '/login'">
+    <div id="wrapper">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <br>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" routerLink="/pageaccueil">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">InternHUB</div>
+            </a>
+            <br>
+        
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+        
+            <!-- Nav Item - Accueil -->
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/pageaccueil">
+                    <span><i class="fas fa-home fa-sm fa-fw mr-2"></i> Accueil</span>
+                </a>
+            </li>
+        
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+        
+            <!-- Heading - Stagiaire -->
+            <div class="sidebar-heading">
+                Stagiaire
+            </div>
+        
+            <!-- Nav Item - Stagiaire -->
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseStagiaire" aria-expanded="true"
+                    aria-controls="collapseStagiaire">
+                    <span><i class="fas fa-user-graduate fa-sm fa-fw mr-2"></i> Stagiaire</span>
+                </a>
+                <div id="collapseStagiaire" class="collapse" aria-labelledby="headingStagiaire" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" routerLink="/stagiaires"><i class="fas fa-list fa-sm fa-fw mr-2"></i> Lister</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="collapse-item" routerLink="/ajoutStagiaires"><i class="fas fa-plus fa-sm fa-fw mr-2"></i> Ajouter</a>
+                        <a class="collapse-item" routerLink="/stagiaires"><i class="fas fa-trash fa-sm fa-fw mr-2"></i>Supprimer</a>
+                        <a class="collapse-item" routerLink="/stagiaires"><i class="fas fa-edit fa-sm fa-fw mr-2"></i> Modifier</a>
+                        <a class="collapse-item" routerLink="/stagiaires"><i class="fas fa-search fa-sm fa-fw mr-2"></i> Rechercher</a>
+                        <!-- Add other Stagiaire links here -->
+                    </div>
+                </div>
+            </li>
+        
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+        
+            <!-- Heading - Stage -->
+            <div class="sidebar-heading">
+                Stage
+            </div>
+        
+            <!-- Nav Item - Stage -->
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseStage" aria-expanded="true"
+                    aria-controls="collapseStage">
+                    <span><i class="fas fa-briefcase fa-sm fa-fw mr-2"></i>  Stage</span>
+                </a>
+                <div id="collapseStage" class="collapse" aria-labelledby="headingStage" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" routerLink="/stages"><i class="fas fa-list fa-sm fa-fw mr-2"></i> Lister</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="collapse-item" routerLink="/ajoutStages"><i class="fas fa-plus fa-sm fa-fw mr-2"></i> Ajouter</a>
+                        <a class="collapse-item" routerLink="/stages"><i class="fas fa-external-link-alt fa-sm fa-fw mr-2"></i> Prolonger</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="collapse-item" routerLink="/stages"><i class="fas fa-list fa-sm fa-fw mr-2"></i> Lister les Badges</a>
+
+                        <!-- Add other Stage links here -->
+                    </div>
+                </div>
+            </li>
+        
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+        
+            <!-- Nav Item - Tableau de Bord -->
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/tableaudebord">
+                    <span><i class="fas fa-chart-bar fa-sm fa-fw mr-2"></i> Tableau de Bord</span>
+                </a>
+            </li>
+        
+            <!-- Nav Item - Historique -->
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/historique">
+                    <span><i class="fas fa-history fa-sm fa-fw mr-2"></i> Historique</span>
+                </a>
+            </li>
+
+            <hr class="sidebar-divider">
+        
+            <!-- Nav Item - A Propos -->
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/apropos">
+                    <span><i class="fas fa-info-circle fa-sm fa-fw mr-2"></i> A Propos</span>
+                </a>
+            </li>
+        
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+        </ul>
+        
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="container">
+  <br>
+  <br>
+  <h2 class="text-center text-primary">Ajouter un Stage</h2>
+  <br>
+  <br>
+  <form [formGroup]="formajout">
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault01">Libelle <span class="text-danger">*</span></label>
+        <input formControlName="libelle" type="text" class="form-control" [(ngModel)]="nouveauStage.libelle" id="validationDefault01" name="libelle">
+        <small *ngIf="formajout.controls['libelle'].dirty && formajout.hasError('required','libelle')" class="text-danger">Le libelle est requis</small>
+        <small *ngIf="formajout.get('libelle')!.hasError('pattern') && formajout.get('libelle')!.dirty" class="text-danger">
+          Le libelle ne doit contenir que des lettres alphabétiques.
+        </small>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault02">Date Debut <span class="text-danger">*</span></label>
+        <input type="date" formControlName="datedebut" class="form-control" [(ngModel)]="nouveauStage.datedebut" id="validationDefault02" name="datedebut" required>
+        <small *ngIf="formajout.controls['datedebut'].dirty && formajout.hasError('required','datedebut')" class="text-danger">La date de debut est requise</small>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefaultUsername">Date Fin <span class="text-danger">*</span></label>
+        <div class="input-group">
+          <input type="date" formControlName="datefin" class="form-control" [(ngModel)]="nouveauStage.datefin" id="validationDefaultUsername" name="datefin" required>
+          <small *ngIf="formajout.controls['datefin'].dirty && formajout.hasError('required','datefin')" class="text-danger">La date de fin est requise</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-5 mb-3">
+        <label for="validationDefault06"> Stagiaire <span class="text-danger">*</span></label>
+        <button class="btn btn-outline-secondary ml-1 mb-1" type="button" routerLink="/ajoutStagiaires">
+          <i class="fa fa-plus"></i>
+        </button>
+        <select class="form-control" formControlName="stagiaire" [(ngModel)]="idstagiaire" name="uio" required>
+          <option value="" selected>Choisir un stagiaire</option>
+          <option *ngFor="let stagiaire of listeStagiaires" [value]="stagiaire.uio">{{stagiaire.uio}} - {{stagiaire.prenom}} {{ stagiaire.nom }} - {{stagiaire.nni}}</option>
+        </select>  
+        <small *ngIf="formajout.controls['stagiaire'].dirty && formajout.hasError('required','stagiaire')" class="text-danger">Le stagiaire est requis</small>    
+      </div>
+      
+      <div class="col-md-5 mb-3">
+          <label for="validationDefault04">Service <span class="text-danger">*</span></label>
+          <select class="form-control" formControlName="service" [(ngModel)]="idservice" id="validationDefault04" name="uio" required>
+            <option value="" selected>Choisir un service</option>
+              <option *ngFor="let service of listeServices" [value]="service.uio">{{service.uio}} - {{ service.nom }}</option>
+          </select>
+          <small *ngIf="formajout.controls['service'].dirty && formajout.hasError('required','service')" class="text-danger">Le service est requis</small>
+      </div>
+
+      <div class="col-md-2 mb-3">
+        <label for="validationDefault05">Code Badge <span class="text-danger">*</span></label>
+        <input type="number" formControlName="badge" class="form-control" id="validationDefault05" [(ngModel)]="idbadge">
+        <small *ngIf="formajout.controls['badge'].dirty && formajout.hasError('required','badge')" class="text-danger" name="code">Le code du badge est requis</small>
+      </div>
+    </div>
+    
+    <div class="d-flex">
+      <button class="btn btn-success btn-lg my-3 ml-auto" (click)="ajouterStage()" type="submit">Ajouter</button>
+    </div>
+  </form>
+</div>

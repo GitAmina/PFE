@@ -1,0 +1,51 @@
+<div class="container">
+  <br>
+  <br>
+  <h2 class="text-center text-success">Prolonger un Stage</h2>
+  <br>
+  <br>
+  <form [formGroup]="formmajajout">
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault01">Libelle <span class="text-danger">*</span></label>
+        <input type="text" formControlName="libelle" class="form-control" [(ngModel)]="currentstage.libelle" id="validationDefault01" name="libelle" required>
+        <small *ngIf="formmajajout.controls['libelle'].dirty && formmajajout.hasError('required','libelle')" class="text-danger">Le libelle est requis</small>
+        <small *ngIf="formmajajout.get('libelle')!.hasError('pattern') && formmajajout.get('libelle')!.dirty" class="text-danger">
+          Le libelle ne doit contenir que des lettres alphabétiques.
+        </small>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault02">Date Debut</label>
+        <input type="date" formControlName="datedebut" class="form-control" readonly [ngModel]="currentstage.datedebut | date: 'yyyy-MM-dd'" (ngModelChange)="currentstage.datedebut = $event" id="validationDefault02" name="datedebut" required>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefaultUsername">Date Fin <span class="text-danger">*</span></label>
+        <div class="input-group">
+          <input type="date" formControlName="datefin" class="form-control" [ngModel]="currentstage.datefin | date: 'yyyy-MM-dd'" (ngModelChange)="currentstage.datefin = $event" id="validationDefaultUsername" name="datefin" required>
+          <small *ngIf="formmajajout.controls['datefin'].dirty && formmajajout.hasError('required','datefin')" class="text-danger">La nouvelle date de fin est requise</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-5 mb-3">
+        <label for="validationDefault06"> Stagiaire</label>
+        <input type="text" formControlName="stagiaire" class="form-control" id="validationDefault06" readonly [(ngModel)]="Stagiaire.nni" name="stagiaire" required>
+      </div>
+
+      <div class="col-md-5 mb-3">
+        <label for="validationDefault04">Service</label>
+        <input type="text" formControlName="service" class="form-control" id="validationDefault04" readonly [(ngModel)]="Service.nom" name="service" required>
+      </div>
+
+      <div class="col-md-2 mb-3">
+        <label for="validationDefault05">Code Badge</label>
+        <input type="number" formControlName="badge" readonly class="form-control" id="validationDefault05">
+      </div>
+    </div>
+    
+    <div class="d-flex">
+      <button class="btn btn-success btn-lg my-3 ml-auto" (click)="MAJStage()" type="submit">Prolonger</button>
+    </div>
+  </form>
+</div>

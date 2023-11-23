@@ -1,0 +1,109 @@
+<div class="container">
+  <br>
+  <h2  class="text-center text-primary">Ajouter un Stagiaire</h2>
+  <br>
+  <form [formGroup]="formajout">
+    <div class="form-row form-group ">
+      <div class="col-md-5 mb-3">
+        <label for="validationDefault02">Prenom <span class="text-danger">*</span></label>
+        <input type="text" formControlName="prenom" [(ngModel)]="nouveauStagiaire.prenom" class="form-control rounded" id="validationDefault02" name="prenom" required>
+        <small *ngIf="formajout.controls['prenom'].dirty && formajout.hasError('required','prenom')" class="text-danger">Le prenom est requis</small>
+        <small *ngIf="formajout.get('prenom')!.hasError('pattern') && formajout.get('prenom')!.dirty" class="text-danger">
+          Le prénom ne doit contenir que des lettres alphabétiques.
+        </small>
+      </div>
+      
+      <div class="col-md-5 mb-3">
+        <label for="validationDefault01">Nom <span class="text-danger">*</span></label>
+        <input type="text" formControlName="nom" [(ngModel)]="nouveauStagiaire.nom" class="form-control rounded" id="validationDefault01" name="nom" required>
+        <small *ngIf="formajout.controls['nom'].dirty && formajout.hasError('required','nom')" class="text-danger">Le nom est requis</small>
+        <small *ngIf="formajout.get('nom')!.hasError('pattern') && formajout.get('nom')!.dirty" class="text-danger">
+          Le nom ne doit contenir que des lettres alphabétiques.
+        </small>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label for="validationDefault13">Genre <span class="text-danger">*</span></label>
+        <select id="validationDefault13" formControlName="genre" class="form-control rounded" [(ngModel)]="nouveauStagiaire.genre" name="genre">
+          <option value="Feminin">Feminin</option>
+          <option value="Masculin">Masculin</option>
+        </select>
+        <small *ngIf="formajout.controls['genre'].dirty && formajout.hasError('required','genre')" class="text-danger">Le genre est requis</small>
+      </div>
+    </div>
+
+    <!-- <div class="dropdown-divider"></div> -->
+
+    <div class="form-row form-group">
+      <div class="col-md-3 mb-3">
+        <label for="validationDefaultUsername">Nni <span class="text-danger">*</span></label>
+        <input type="text" formControlName="nni" [(ngModel)]="nouveauStagiaire.nni" class="form-control rounded" id="validationDefaultUsername" name="nni" aria-describedby="inputGroupPrepend2" required>
+        <small *ngIf="formajout.controls['nni'].dirty && formajout.hasError('required','nni')" class="text-danger">Le Nni est requis</small>
+        <small *ngIf="formajout.get('nni')!.hasError('pattern') && formajout.get('nni')!.dirty" class="text-danger">
+          Le NNI doit contenir 10 des chiffres.
+        </small>
+      </div>
+      
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault03">Date de naissance <span class="text-danger">*</span></label>
+        <input type="date" formControlName="datenaiss" [(ngModel)]="nouveauStagiaire.datenaiss" class="form-control rounded" id="validationDefault03" name="datenaiss" required>
+        <small *ngIf="formajout.controls['datenaiss'].dirty && formajout.hasError('required','datenaiss')" class="text-danger">Le date de naissance est requise</small>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="validationDefault09">Adresse <span class="text-danger">*</span></label>
+        <input type="text" formControlName="adresse" [(ngModel)]="nouveauStagiaire.adresse" class="form-control rounded" id="validationDefault09" name="adresse" required>
+        <small *ngIf="formajout.controls['adresse'].dirty && formajout.hasError('required','adresse')" class="text-danger">L'adresse est requise</small>
+      </div>
+    </div>
+
+    <!-- <div class="dropdown-divider"></div> -->
+
+    <div class="form-row form-group">
+      <div class="col-md-4 mb-3">
+        <label for="customFile">Nationnalité (Pays) <span class="text-danger">*</span></label>
+        <input type="text" formControlName="nationnalite" [(ngModel)]="nouveauStagiaire.nationnalite" class="form-control rounded" id="customFile" name="nationnalite" required>
+        <small *ngIf="formajout.controls['nationnalite'].dirty && formajout.hasError('required','nationnalite')" class="text-danger">La nationnalité est requise</small>
+        <small *ngIf="formajout.get('nationnalite')!.hasError('pattern') && formajout.get('nationnalite')!.dirty" class="text-danger">
+          La nationnalité ne doit contenir que des lettres alphabétiques.
+        </small>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label for="validationDefault04">Telephone <span class="text-danger">*</span></label>
+        <input type="tel" formControlName="telephone" [(ngModel)]="nouveauStagiaire.telephone" class="form-control rounded" id="validationDefault04" name="telephone" required>
+        <small *ngIf="formajout.controls['telephone'].dirty && formajout.hasError('required','telephone')" class="text-danger">Le numero de telephone est requis</small>
+        <small *ngIf="formajout.get('telephone')!.hasError('pattern') && formajout.get('telephone')!.dirty" class="text-danger">
+          Le numero de telephone doit contenir 8 chiffres.
+        </small>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="validationDefault06">Email <span class="text-danger">*</span></label>
+        <input type="email" formControlName="email" [(ngModel)]="nouveauStagiaire.email" class="form-control rounded" id="validationDefault06" name="email" required>
+        <small *ngIf="formajout.controls['email'].dirty && formajout.hasError('required','email')" class="text-danger">Le mail est requis</small>
+        <small *ngIf="formajout.get('email')!.hasError('pattern') && formajout.get('email')!.dirty" class="text-danger">
+          Le mail n'est pas correct
+        </small>
+      </div>
+    </div>
+
+    <!-- <div class="dropdown-divider"></div> -->
+
+    <div class="form-row form-group">
+      <div class="col-md-5 mb-3">
+        <label for="validationDefault05">Etablissement</label>
+        <input type="text" formControlName="etablissement" [(ngModel)]="nouveauStagiaire.etablissement" class="form-control rounded" id="validationDefault05" name="etablissement">
+      </div>
+      <div class="col-md-5 mb-3">
+        <label for="validationDefault10">Formation</label>
+        <input type="text" formControlName="formation" [(ngModel)]="nouveauStagiaire.formation" class="form-control rounded" id="validationDefault10" name="formation">
+      </div>
+      <div class="col-md-2 mb-3">
+        <label for="validationDefault11">Niveau</label>
+        <input type="text" formControlName="niveau" [(ngModel)]="nouveauStagiaire.niveau" class="form-control rounded" id="validationDefault11"  name="niveau">
+      </div>
+    </div>
+        
+    <div class="d-flex">
+      <button class="btn btn-success btn-lg my-3 ml-auto" (click)="ajouterStagiaire()" type="submit">Ajouter</button>
+    </div>
+  </form>
+</div>

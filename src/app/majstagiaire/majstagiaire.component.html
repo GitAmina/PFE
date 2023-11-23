@@ -1,0 +1,96 @@
+<div class="container">
+  <br>
+  <h2  class="text-center text-success">Modifier un Stagiaire</h2>
+  <br>
+  <form [formGroup]="formmajajout">
+    <div class="form-row">
+      <div class="col-md-5 mb-3">
+        <label for="validationDefault02" class="text-secondary"><b>Prenom <span class="text-danger">*</span></b></label>
+        <input type="text" formControlName="prenom" [(ngModel)]="currentstagiaire.prenom" class="form-control rounded" id="validationDefault02" name="prenom" required>
+        <small *ngIf="formmajajout.controls['prenom'].dirty && formmajajout.hasError('required','prenom')" class="text-danger">Le prenom est requis</small>
+        <small *ngIf="formmajajout.get('prenom')!.hasError('pattern') && formmajajout.get('prenom')!.dirty" class="text-danger">
+          Le prénom ne doit contenir que des lettres alphabétiques.
+        </small>
+      </div>
+      <div class="col-md-5 mb-3">
+        <label for="validationDefault01">Nom <span class="text-danger">*</span></label>
+        <input type="text" formControlName="nom" [(ngModel)]="currentstagiaire.nom" class="form-control rounded" id="validationDefault01" name="nom" required>
+        <small *ngIf="formmajajout.controls['nom'].dirty && formmajajout.hasError('required','nom')" class="text-danger">Le prenom est requis</small>
+        <small *ngIf="formmajajout.get('nom')!.hasError('pattern') && formmajajout.get('nom')!.dirty" class="text-danger">
+          Le prénom ne doit contenir que des lettres alphabétiques.
+        </small>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label for="validationDefault13">Genre</label>
+        <input type="text" formControlName="genre" readonly [(ngModel)]="genre" id="validationDefault13" class="form-control rounded" name="genre">
+      </div>
+    </div>
+
+    <!-- <div class="dropdown-divider"></div> -->
+
+    <div class="form-row">
+      <div class="col-md-3 mb-3">
+        <label for="validationDefaultUsername">Nni</label>
+        <input type="number" formControlName="nni" [(ngModel)]="currentstagiaire.nni" readonly class="form-control rounded" id="validationDefaultUsername" name="nni" aria-describedby="inputGroupPrepend2" required>
+      </div>
+      
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault03">Date de naissance <span class="text-danger">*</span></label>
+        <input type="date" formControlName="datenaiss" [ngModel]="currentstagiaire.datenaiss | date: 'yyyy-MM-dd'" (ngModelChange)="currentstagiaire.datenaiss = $event" class="form-control rounded" id="validationDefault03" name="datenaiss" required>
+        <small *ngIf="formmajajout.controls['datenaiss'].dirty && formmajajout.hasError('required','datenaiss')" class="text-danger">Le date de naissance est requise</small>
+      </div>
+      
+
+      <div class="col-md-6 mb-3">
+        <label for="validationDefault09">Adresse <span class="text-danger">*</span></label>
+        <input type="text" formControlName="adresse" [(ngModel)]="currentstagiaire.adresse" class="form-control rounded" id="validationDefault09" name="adresse" required>
+        <small *ngIf="formmajajout.controls['adresse'].dirty && formmajajout.hasError('required','adresse')" class="text-danger">L'adresse est requise</small>
+      </div>
+    </div>
+
+    <!-- <div class="dropdown-divider"></div> -->
+
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="customFile">Nationnalité (Pays)</label>
+        <input type="text" readonly formControlName="nationnalite" readonly [(ngModel)]="currentstagiaire.nationnalite" class="form-control rounded" id="customFile" name="nationnalite" required>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label for="validationDefault04">Telephone <span class="text-danger">*</span></label>
+        <input type="tel" formControlName="telephone" [(ngModel)]="currentstagiaire.telephone" class="form-control rounded" id="validationDefault04" name="telephone" required>
+        <small *ngIf="formmajajout.controls['telephone'].dirty && formmajajout.hasError('required','telephone')" class="text-danger">Le numero de telephone est requis</small>
+        <small *ngIf="formmajajout.get('telephone')!.hasError('pattern') && formmajajout.get('telephone')!.dirty" class="text-danger">
+          Le numero de telephone doit contenir 8 chiffres.
+        </small>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="validationDefault06">Email <span class="text-danger">*</span></label>
+        <input type="email" formControlName="email" [(ngModel)]="currentstagiaire.email" class="form-control rounded" id="validationDefault06" name="email" required>
+        <small *ngIf="formmajajout.controls['email'].dirty && formmajajout.hasError('required','email')" class="text-danger">Le mail est requis</small>
+        <small *ngIf="formmajajout.get('email')!.hasError('pattern') && formmajajout.get('email')!.dirty" class="text-danger">
+          Le mail n'est pas correct
+        </small>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-5 mb-3">
+        <label for="validationDefault05">Etablissement</label>
+        <input type="text" formControlName="etablissement" [(ngModel)]="currentstagiaire.etablissement" class="form-control rounded" id="validationDefault05" name="etablissement">
+      </div>
+      <div class="col-md-5 mb-3">
+        <label for="validationDefault10">Formation</label>
+        <input type="text" formControlName="formation" [(ngModel)]="currentstagiaire.formation" class="form-control rounded" id="validationDefault10" name="formation">
+      </div>
+      <div class="col-md-2 mb-3">
+        <label for="validationDefault11">Niveau</label>
+        <input type="text" formControlName="niveau" [(ngModel)]="currentstagiaire.niveau" class="form-control rounded" id="validationDefault11"  name="niveau">
+      </div>
+    </div>
+        
+    <div class="d-flex">
+      <button class="btn btn-success btn-lg my-3 ml-auto" (click)="MAJStagiaire()" type="submit">Modifier</button>
+    </div>
+  </form>
+</div>
+

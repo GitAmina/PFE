@@ -1,0 +1,34 @@
+<div class="">
+    <div class="card shadow mb-4">
+        <div class="card-body" style="background-color: whitesmoke;">
+            <h3 class="text-center text-secondary">Liste des stages</h3>
+            <table datatable [dtOptions]="dtoptions" [dtTrigger]="dttrigger" class="table table-bordered">
+                <thead>
+                    <tr class="text-center">
+                        <th>ID</th>
+                        <!-- <th>UUID</th> -->
+                        <th>Nom</th>
+                        <th>Date Debut</th>
+                        <th>Date Fin</th>
+                        <th>Stagiaire</th>
+                        <th>Service</th>
+                        <th>Prolonger</th>
+                    </tr>
+                </thead>
+
+                <tbody *ngFor="let stage of stages">
+                    <tr class="text-center">
+                        <td>{{stage.uio}}</td>
+                        <!-- <td>{{stage.uuid}}</td> -->
+                        <td>{{stage.libelle}}</td>
+                        <td>{{stage.datedebut | date:'dd/MM/yyyy'}}</td>
+                        <td>{{stage.datefin | date:'dd/MM/yyyy'}}</td>
+                        <td>{{stage!.stagiaire ? stage.stagiaire.prenom + ' ' + stage.stagiaire.nom + ' - ' + stage.stagiaire.nni : 'N/A'}}</td>
+                        <td>{{stage!.service ? stage.service.nom + ' - ' + stage.service.uio : 'N/A'}}</td>
+                        <td><a class="btn btn-outline-success" [routerLink]="['/majstage',stage.uio]"><i class="fas fa-external-link-alt fa-sm fa-fw mr-2"></i></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

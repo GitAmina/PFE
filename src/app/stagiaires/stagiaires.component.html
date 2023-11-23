@@ -1,0 +1,77 @@
+<div class="">
+    <div class="card shadow mb-4">  
+        <div class="card-body" style="background-color: whitesmoke;">
+            <div class="table-responsive">
+                <h3 class="text-center text-secondary">Liste des stagiaires</h3>
+                <table datatable [dtOptions]="dtoptions" [dtTrigger]="dttrigger" class="table table-bordered" id="table">
+                    <thead>
+                        <tr class="text-center">
+                            <th>ID</th>
+                            <!-- <th>UUID</th> -->
+                            <th>NNI</th>
+                            <th>Prenom</th>
+                            <th>Nom</th>
+                            <th>Genre</th>
+                            <th>Date de Naissance</th>
+                            <th>Nationnalité</th>
+                            <th>Telephone</th>
+                            <th>Adresse</th>
+                            <th>Email</th>
+                            <th>Etablissement</th>
+                            <th>Formation</th>
+                            <th>Niveau</th>
+                            <th>Supprimer</th>
+                            <th>Modifier</th>
+                        </tr>
+                    </thead>
+
+                    <tbody *ngFor="let stagiaire of stagiaires">
+                        <tr class="text-center">
+                            <td>{{stagiaire.uio}}</td>
+                            <!-- <td>{{stagiaire.uuid}}</td> -->
+                            <td>{{stagiaire.nni}}</td>
+                            <td>{{stagiaire.prenom}}</td>
+                            <td>{{stagiaire.nom}}</td>
+                            <td>{{stagiaire.genre}}</td>
+                            <td>{{stagiaire.datenaiss | date:'dd/MM/yyyy'}}</td>
+                            <td>{{stagiaire.nationnalite}}</td>
+                            <td>{{stagiaire.telephone}}</td>
+                            <td>{{stagiaire.adresse}}</td>
+                            <td>{{stagiaire.email}}</td>
+                            <td>{{stagiaire!.etablissement}}</td>
+                            <td>{{stagiaire!.formation}}</td>
+                            <td>{{stagiaire!.niveau}}</td>
+                            <td><a class="btn btn-outline-danger" (click)="supprimerStagiaire(stagiaire)"><i class="fas fa-trash fa-sm fa-fw mr-2"></i></a></td>
+                            <td><a class="btn btn-outline-success" [routerLink]="['/majstagiaire',stagiaire.uio]"><i class="fas fa-edit fa-sm fa-fw mr-2"></i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h5 class="text-secondary text-center">Filtrer par Champs</h5>
+                <br>
+                <form>
+                    <div class="form-row form-group">
+                        <div class="col-md-3 mb-3">
+                            <label for="prenom">Prénom : </label>
+                            <input type="text" id="prenom" [(ngModel)]="prenom" name="prenom" (ngModelChange)="rechercherParPrenom()">
+                        </div>
+                        
+                        <div class="col-md-3 mb-3">
+                            <label for="nom">Nom : </label>
+                            <input type="text" class="form-input" id="nom" [(ngModel)]="nom" name="nom" (ngModelChange)="rechercherParNom()">
+                        </div>
+            
+                        <div class="col-md-3 mb-3">
+                            <label for="nni">Nni : </label>
+                            <input type="number" id="nni" [(ngModel)]="nni" name="nni" (ngModelChange)="rechercherParNni()">
+                        </div>
+            
+                        <div class="col-md-3 mb-3">  
+                            <label for="telephone">Telephone : </label>
+                            <input type="number" id="telephone" [(ngModel)]="telephone" name="telephone" (ngModelChange)="rechercherParTelephone()">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

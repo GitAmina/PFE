@@ -1,0 +1,31 @@
+<div class="">
+    <!-- <br>
+    <h2 class="text-center">Liste des stagiaires</h2>
+    <br> -->
+    <div class="card shadow mb-4">
+        <div class="card-body" style="background-color: whitesmoke;">
+            <h3 class="text-center text-secondary">Historique</h3>
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered">
+                <thead>
+                    <tr class="text-center">
+                        <th>ID</th>
+                        <th>Action</th>
+                        <th>Acteur</th>
+                        <th>Date</th>
+                        <th>Commentaire</th>
+                    </tr>
+                </thead>
+
+                <tbody *ngFor="let histo of historiques">
+                    <tr class="text-center">
+                        <td>{{ histo.uio }}</td>
+                        <td>{{ histo.action }}</td>
+                        <td>{{ histo.acteur }}</td>
+                        <td>{{ histo.date | date:'dd/MM/yyyy' }}</td>
+                        <td>{{ histo.commentaire }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
