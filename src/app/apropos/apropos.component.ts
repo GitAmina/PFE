@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./apropos.component.css']
 })
 export class AproposComponent {
-
+  logo : string = "assets/img/InternHUB.png" ;
 }

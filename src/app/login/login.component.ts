@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   login! : string;
   mdp! : string;
   user! : utilisateur;
+  logo : string = "assets/img/InternHUB.png" ;
 
   constructor (private toastr : ToastrService, private fb : FormBuilder, private router : Router, private authService: Authentificationservice) {
 
