@@ -21,6 +21,7 @@ export class StagiairesComponent implements OnInit {
   nom! : string;
   telephone! : number;
   nni! : number;
+  page : number = 0;
 
   constructor( private stagiaireservice : StagiaireService, private toastr : ToastrService) {
     
@@ -34,11 +35,20 @@ export class StagiairesComponent implements OnInit {
       pageLength : 5,
     };
 
-    this.chargerStagiaires();  
+    this.chargerPageStagiaires();  
   }
 
   chargerStagiaires() {
     this.stagiaireservice.listeStagiaire().subscribe(data => {
+      console.log(data);
+      this.stagiaires = data._embedded.stagiaires;
+      console.log('Nombre d\'entrées:', this.stagiaires.length);
+      this.dttrigger.next(this.stagiaires);
+    });
+  }
+
+  chargerPageStagiaires() {
+    this.stagiaireservice.listePageStagiaire(this.page).subscribe(data => {
       console.log(data);
       this.stagiaires = data._embedded.stagiaires;
       console.log('Nombre d\'entrées:', this.stagiaires.length);

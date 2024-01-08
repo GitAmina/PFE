@@ -26,6 +26,11 @@ export class StagiaireService {
     return this.http.get<Wrapper>(this.apiurl);
   }
 
+  listePageStagiaire (page : number): Observable<Wrapper>{
+    let size = 5;
+    return this.http.get<Wrapper>(`${this.apiurl}?page=${page}/size=${size}`);
+  }
+
   ajouterStagiaire (s : Stagiaire) : Observable<Stagiaire> {
     return this.http.post<Stagiaire>(this.apiurl, s, httpOptions);
   }
