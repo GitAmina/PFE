@@ -24,6 +24,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { AproposComponent } from './apropos/apropos.component';
 import { TableaudebordComponent } from './tableaudebord/tableaudebord.component';
 import { ProfilComponent } from './profil/profil.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { ProfilComponent } from './profil/profil.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

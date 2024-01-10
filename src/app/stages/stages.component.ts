@@ -18,6 +18,8 @@ export class StagesComponent implements OnInit{
   message : string = '';
   dtoptions : DataTables.Settings = {};
   dttrigger : Subject<any> = new Subject<any>();
+  page : number = 0;
+  totalLength : any;
 
   constructor(private stageservice : Stageservice) {
 

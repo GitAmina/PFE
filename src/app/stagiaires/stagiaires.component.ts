@@ -22,6 +22,7 @@ export class StagiairesComponent implements OnInit {
   telephone! : number;
   nni! : number;
   page : number = 0;
+  totalLength : any;
 
   constructor( private stagiaireservice : StagiaireService, private toastr : ToastrService) {
     

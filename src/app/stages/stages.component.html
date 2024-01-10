@@ -2,7 +2,8 @@
     <div class="card shadow mb-4">
         <div class="card-body" style="background-color: whitesmoke;">
             <h3 class="text-center text-secondary">Liste des stages</h3>
-            <table datatable [dtOptions]="dtoptions" [dtTrigger]="dttrigger" class="table table-bordered">
+            <table class="table table-bordered">
+                <!-- datatable [dtOptions]="dtoptions" [dtTrigger]="dttrigger" -->
                 <thead>
                     <tr class="text-center">
                         <th>ID</th>
@@ -12,11 +13,16 @@
                         <th>Date Fin</th>
                         <th>Stagiaire</th>
                         <th>Service</th>
+                        <th>Badge</th>
                         <th>Prolonger</th>
                     </tr>
                 </thead>
 
-                <tbody *ngFor="let stage of stages">
+                <tbody *ngFor="let stage of stages | paginate : {
+                    itemsPerPage : 5,
+                    currentPage : page,
+                    totalItems : totalLength,
+                }">
                     <tr class="text-center">
                         <td>{{stage.uio}}</td>
                         <!-- <td>{{stage.uuid}}</td> -->
@@ -25,10 +31,16 @@
                         <td>{{stage.datefin | date:'dd/MM/yyyy'}}</td>
                         <td>{{stage!.stagiaire ? stage.stagiaire.prenom + ' ' + stage.stagiaire.nom + ' - ' + stage.stagiaire.nni : 'N/A'}}</td>
                         <td>{{stage!.service ? stage.service.nom + ' - ' + stage.service.uio : 'N/A'}}</td>
+                        <td></td>
                         <td><a class="btn btn-outline-success" [routerLink]="['/majstage',stage.uio]"><i class="fas fa-external-link-alt fa-sm fa-fw mr-2"></i></a></td>
                     </tr>
                 </tbody>
             </table>
+
+            <div class="pagination">
+                <pagination-controls (pageChange)="page = $event"></pagination-controls>
+            </div>
+
         </div>
     </div>
 </div>

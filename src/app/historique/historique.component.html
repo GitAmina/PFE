@@ -5,7 +5,7 @@
     <div class="card shadow mb-4">
         <div class="card-body" style="background-color: whitesmoke;">
             <h3 class="text-center text-secondary">Historique</h3>
-            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered">
+            <table class="table table-bordered">
                 <thead>
                     <tr class="text-center">
                         <th>ID</th>
@@ -16,7 +16,11 @@
                     </tr>
                 </thead>
 
-                <tbody *ngFor="let histo of historiques">
+                <tbody *ngFor="let histo of historiques | paginate : {
+                    itemsPerPage : 5,
+                    currentPage : page,
+                    totalItems : totalLength,
+                }">
                     <tr class="text-center">
                         <td>{{ histo.uio }}</td>
                         <td>{{ histo.action }}</td>
@@ -26,6 +30,11 @@
                     </tr>
                 </tbody>
             </table>
+
+            <div class="pagination">
+                <pagination-controls (pageChange)="page = $event"></pagination-controls>
+            </div>
+
         </div>
     </div>
 </div>

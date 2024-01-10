@@ -3,7 +3,8 @@
         <div class="card-body" style="background-color: whitesmoke;">
             <div class="table-responsive">
                 <h3 class="text-center text-secondary">Liste des stagiaires</h3>
-                <table datatable [dtOptions]="dtoptions" [dtTrigger]="dttrigger" class="table table-bordered" id="table">
+                <table class="table table-bordered" id="table">
+                    <!-- datatable [dtOptions]="dtoptions" [dtTrigger]="dttrigger" -->
                     <thead>
                         <tr class="text-center">
                             <th>ID</th>
@@ -25,7 +26,11 @@
                         </tr>
                     </thead>
 
-                    <tbody *ngFor="let stagiaire of stagiaires">
+                    <tbody *ngFor="let stagiaire of (stagiaires ?? []) | paginate : {
+                        itemsPerPage : 5,
+                        currentPage : page,
+                        totalItems : totalLength,
+                    }">
                         <tr class="text-center">
                             <td>{{stagiaire.uio}}</td>
                             <!-- <td>{{stagiaire.uuid}}</td> -->
@@ -46,6 +51,11 @@
                         </tr>
                     </tbody>
                 </table>
+
+                <div class="pagination">
+                    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                </div>                
+
                 <h5 class="text-secondary text-center">Filtrer par Champs</h5>
                 <br>
                 <form>
