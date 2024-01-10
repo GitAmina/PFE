@@ -17,7 +17,7 @@
                 </thead>
 
                 <tbody *ngFor="let histo of historiques | paginate : {
-                    itemsPerPage : 5,
+                    itemsPerPage : 10,
                     currentPage : page,
                     totalItems : totalLength,
                 }">
