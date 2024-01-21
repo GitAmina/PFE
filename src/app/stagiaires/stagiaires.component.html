@@ -34,18 +34,18 @@
                         <tr class="text-center">
                             <td>{{stagiaire.uio}}</td>
                             <!-- <td>{{stagiaire.uuid}}</td> -->
-                            <td>{{stagiaire.nni}}</td>
-                            <td>{{stagiaire.prenom}}</td>
-                            <td>{{stagiaire.nom}}</td>
-                            <td>{{stagiaire.genre}}</td>
-                            <td>{{stagiaire.datenaiss | date:'dd/MM/yyyy'}}</td>
-                            <td>{{stagiaire.nationnalite}}</td>
-                            <td>{{stagiaire.telephone}}</td>
-                            <td>{{stagiaire.adresse}}</td>
-                            <td>{{stagiaire.email}}</td>
-                            <td>{{stagiaire!.etablissement}}</td>
-                            <td>{{stagiaire!.formation}}</td>
-                            <td>{{stagiaire!.niveau}}</td>
+                            <td>{{stagiaire?.nni}}</td>
+                            <td>{{stagiaire?.prenom}}</td>
+                            <td>{{stagiaire?.nom}}</td>
+                            <td>{{stagiaire?.genre}}</td>
+                            <td>{{stagiaire?.datenaiss | date:'dd/MM/yyyy'}}</td>
+                            <td>{{stagiaire?.nationnalite}}</td>
+                            <td>{{stagiaire?.telephone}}</td>
+                            <td>{{stagiaire?.adresse}}</td>
+                            <td>{{stagiaire?.email}}</td>
+                            <td>{{stagiaire?.etablissement}}</td>
+                            <td>{{stagiaire?.formation}}</td>
+                            <td>{{stagiaire?.niveau}}</td>
                             <td><a class="btn btn-outline-danger" (click)="supprimerStagiaire(stagiaire)"><i class="fas fa-trash fa-sm fa-fw mr-2"></i></a></td>
                             <td><a class="btn btn-outline-success" [routerLink]="['/majstagiaire',stagiaire.uio]"><i class="fas fa-edit fa-sm fa-fw mr-2"></i></a></td>
                         </tr>
@@ -72,12 +72,12 @@
             
                         <div class="col-md-3 mb-3">
                             <label for="nni">Nni : </label>
-                            <input type="number" id="nni" [(ngModel)]="nni" name="nni" (ngModelChange)="rechercherParNni()">
+                            <input type="text" id="nni" [(ngModel)]="nni" name="nni" (ngModelChange)="rechercherParNni()">
                         </div>
             
                         <div class="col-md-3 mb-3">  
                             <label for="telephone">Telephone : </label>
-                            <input type="number" id="telephone" [(ngModel)]="telephone" name="telephone" (ngModelChange)="rechercherParTelephone()">
+                            <input type="text" id="telephone" [(ngModel)]="telephone" name="telephone" (ngModelChange)="rechercherParTelephone()">
                         </div>
                     </div>
                 </form>

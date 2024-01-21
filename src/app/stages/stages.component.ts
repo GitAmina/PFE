@@ -16,10 +16,9 @@ export class StagesComponent implements OnInit{
   // stages! : Stage[];
   stage! : Stage;
   message : string = '';
-  dtoptions : DataTables.Settings = {};
-  dttrigger : Subject<any> = new Subject<any>();
   page : number = 0;
   totalLength : any;
+
 
   constructor(private stageservice : Stageservice) {
 
@@ -27,12 +26,22 @@ export class StagesComponent implements OnInit{
 
   ngOnInit(): void {
     this.ChargerStages();
-    this.dtoptions = {
-      pagingType : 'full_numbers',
-      lengthMenu : [5, 10, 20, 30, 40, 50],
-      ordering : true,
-      pageLength : 5,
-    };
+  }
+
+  getEtat(stage: Stage): string {
+    const today = new Date();
+    const dateDebut = new Date(stage.datedebut);
+    const dateFin = new Date(stage.datefin);
+
+    if (today < dateDebut) {
+        return 'A venir';
+    }
+    else if (today >= dateDebut && today <= dateFin) {
+        return 'En cours';
+    }
+    else {
+        return 'Echus';
+    }
   }
 
   ChargerStages() {
@@ -43,8 +52,6 @@ export class StagesComponent implements OnInit{
       this.chargerServicesEtStagiaires();
 
       console.log('Nombre d\'entrées:', this.stages.length);
-
-      this.dttrigger.next(this.stages);
       
     })
   }

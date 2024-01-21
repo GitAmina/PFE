@@ -5,27 +5,25 @@
         <div class="card" style="border-radius: 1rem;">
           <div class="row g-0 d-flex justify-content-center align-items-center">
             <div class="col-md-6 col-lg-5 d-none d-md-block">
-              <img [src]="logo"
-                alt="login form" class="img-fluid ml-4" />
+              <img [src]="logo" alt="login form" class="img-fluid ml-4" />
             </div>
             <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
                 <form [formGroup]="loginform">
 
-                  <div class="mb-3 pb-1">
-                  </div>
+                  <div class="mb-3 pb-1"></div>
 
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;"></h5>
 
                   <div class="form-outline mb-4">
-                    <input type="email" formControlName="login" [(ngModel)]="login" id="form2Example17" class="form-control form-control-lg" name="login" />
+                    <input type="email" formControlName="login" [(ngModel)]="login" id="form2Example17" class="form-control form-control-lg" name="login" (keydown.enter)="SeConnecter()" />
                     <label class="form-label" for="form2Example17">Login</label>
                     <br>
                     <small *ngIf="loginform.controls['login'].dirty && loginform.hasError('required','login')" class="text-danger">Le login est requis</small> 
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="password" formControlName="mdp" [(ngModel)]="mdp" id="form2Example27" class="form-control form-control-lg" name="mdp"/>
+                    <input type="password" formControlName="mdp" [(ngModel)]="mdp" id="form2Example27" class="form-control form-control-lg" name="mdp" (keydown.enter)="SeConnecter()" />
                     <label class="form-label" for="form2Example27">Mot de Passe</label>
                     <br>
                     <small *ngIf="loginform.controls['mdp'].dirty && loginform.hasError('required','mdp')" class="text-danger">Le mot de passe est requis</small> 
@@ -40,7 +38,6 @@
                   <a href="#!" class="small text-muted">Conditions d'utilisation</a> <br>
                   <a href="#!" class="small text-muted">Politique de confidentialité</a>
                 </form>
-
               </div>
             </div>
           </div>

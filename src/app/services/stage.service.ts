@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { WrapperStage } from '../model/WrappedStage.model';
 import { WrapperService } from '../model/WrappedService.model';
+import { Badge } from '../model/badge.model';
 
 const httpOptions = {
     headers : new HttpHeaders( { 'Content-Type' : 'application/json' } )
@@ -38,6 +39,11 @@ export class Stageservice {
         return this.http.get<WrapperService>(this.serviceurl);
     }
 
+    getBadgeByStage(uio: number): Observable<Badge> {
+        const url = `${this.apiurl}/badges/${uio}`;
+        return this.http.get<Badge>(url);
+    }
+    
     getStagiaireById(stagiaireId: number): Observable<Stagiaire> {
         return this.http.get<Stagiaire>(`${this.apiurl}/stagiaires/${stagiaireId}`);
     }
@@ -72,8 +78,9 @@ export class Stageservice {
 
     creerBadge(code: number, stageId: number): Observable<any> {      
         const badgeData = {
-          code: code,
-          stage: `${this.stageurl}/${stageId}`
+            datedelivrance : new Date,
+            code: code,
+            stage: `${this.stageurl}/${stageId}`
         };
       
         return this.http.post<any>(`${this.badgeurl}`, badgeData);

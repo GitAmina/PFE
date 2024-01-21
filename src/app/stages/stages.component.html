@@ -11,6 +11,7 @@
                         <th>Nom</th>
                         <th>Date Debut</th>
                         <th>Date Fin</th>
+                        <th>Etat</th>
                         <th>Stagiaire</th>
                         <th>Service</th>
                         <th>Badge</th>
@@ -29,6 +30,7 @@
                         <td>{{stage.libelle}}</td>
                         <td>{{stage.datedebut | date:'dd/MM/yyyy'}}</td>
                         <td>{{stage.datefin | date:'dd/MM/yyyy'}}</td>
+                        <td>{{getEtat(stage)}}</td>
                         <td>{{stage!.stagiaire ? stage.stagiaire.prenom + ' ' + stage.stagiaire.nom + ' - ' + stage.stagiaire.nni : 'N/A'}}</td>
                         <td>{{stage!.service ? stage.service.nom + ' - ' + stage.service.uio : 'N/A'}}</td>
                         <td></td>

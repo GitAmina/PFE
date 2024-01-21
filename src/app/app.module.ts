@@ -25,6 +25,7 @@ import { AproposComponent } from './apropos/apropos.component';
 import { TableaudebordComponent } from './tableaudebord/tableaudebord.component';
 import { ProfilComponent } from './profil/profil.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { BadgeComponent } from './badge/badge.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AproposComponent,
     TableaudebordComponent,
     ProfilComponent,
+    BadgeComponent,
   ],
   imports: [
     BrowserModule,

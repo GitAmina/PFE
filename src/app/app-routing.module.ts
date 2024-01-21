@@ -12,6 +12,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { AproposComponent } from './apropos/apropos.component';
 import { TableaudebordComponent } from './tableaudebord/tableaudebord.component';
 import { ProfilComponent } from './profil/profil.component';
+import { BadgeComponent } from './badge/badge.component';
 
 const routes: Routes = [
   { path: 'stagiaires', component:StagiairesComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'apropos' , component: AproposComponent},
   { path: 'tableaudebord' , component : TableaudebordComponent},
   { path: 'profil' , component : ProfilComponent},
+  { path: 'badges' , component : BadgeComponent},
   { path: 'login', component:LoginComponent},
   { path: '', redirectTo: 'login', pathMatch: 'full'},
 ];

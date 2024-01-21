@@ -1,0 +1,44 @@
+<div class="">
+    <!-- <br>
+    <h2 class="text-center">Liste des stagiaires</h2>
+    <br> -->
+    <div class="card shadow mb-4">
+        <div class="card-body" style="background-color: whitesmoke;">
+            <h3 class="text-center text-secondary">Liste des badges</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="text-center">
+                        <th>ID</th>
+                        <th>Code Badge</th>
+                        <th>Date delivrance</th>
+                        <th>ID Stage</th>
+                        <th>Date Début</th>
+                        <th>Date Fin</th>
+                        <th>Etat</th>
+                    </tr>
+                </thead>
+
+                <tbody *ngFor="let badge of badges| paginate : {
+                    itemsPerPage : 10,
+                    currentPage : page,
+                    totalItems : totalLength,
+                }">
+                    <tr class="text-center">
+                        <td>{{ badge.uio }}</td>
+                        <td>{{ badge.code }}</td>
+                        <td>{{ badge?.datedelivrance | date:'dd/MM/yyyy'}}</td>
+                        <td>{{ badge?.stage?.uio }}</td>
+                        <td>{{ badge?.stage?.datedebut | date:'dd/MM/yyyy'}}</td>
+                        <td>{{ badge?.stage?.datefin | date:'dd/MM/yyyy'}}</td>
+                        <td>{{ getEtat(badge.stage) }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="pagination">
+                <pagination-controls (pageChange)="page = $event"></pagination-controls>
+            </div>
+
+        </div>
+    </div>
+</div>
