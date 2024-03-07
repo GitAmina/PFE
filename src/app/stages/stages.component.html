@@ -14,7 +14,7 @@
                         <th>Etat</th>
                         <th>Stagiaire</th>
                         <th>Service</th>
-                        <th>Badge</th>
+                        <!-- <th>Badge</th> -->
                         <th>Prolonger</th>
                     </tr>
                 </thead>
@@ -33,7 +33,7 @@
                         <td>{{getEtat(stage)}}</td>
                         <td>{{stage!.stagiaire ? stage.stagiaire.prenom + ' ' + stage.stagiaire.nom + ' - ' + stage.stagiaire.nni : 'N/A'}}</td>
                         <td>{{stage!.service ? stage.service.nom + ' - ' + stage.service.uio : 'N/A'}}</td>
-                        <td></td>
+                        <!-- <td></td> -->
                         <td><a class="btn btn-outline-success" [routerLink]="['/majstage',stage.uio]"><i class="fas fa-external-link-alt fa-sm fa-fw mr-2"></i></a></td>
                     </tr>
                 </tbody>

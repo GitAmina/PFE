@@ -15,21 +15,21 @@ export class AccueilComponent implements OnInit{
     datasets: [
       {
         label: "Direction des technoilogies de l'information ",
-        data: [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65], // Exemple de données factices
+        data: [10, 15, 20, 25,, 50, 55, 60, 65, 30, 35, 40, 45], // Exemple de données factices
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1
       },
       {
         label: 'Direction des ressources humaines',
-        data: [15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70], // Exemple de données factices
+        data: [15, 20, 25, 30, 55, 60, 65, 70, 35, 40, 45, 50], // Exemple de données factices
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
         borderColor: 'rgba(54, 162, 235, 1)',
         borderWidth: 1
       },
       {
         label: 'Direction des laboratoires',
-        data: [20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75], // Exemple de données factices
+        data: [20, 25, 30, 35,60, 65, 70, 75, 40, 45, 50, 55], // Exemple de données factices
         backgroundColor: 'rgba(255, 206, 86, 0.2)',
         borderColor: 'rgba(255, 206, 86, 1)',
         borderWidth: 1
