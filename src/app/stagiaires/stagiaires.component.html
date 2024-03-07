@@ -3,7 +3,7 @@
         <div class="card-body" style="background-color: whitesmoke;">
             <div class="table-responsive">
                 <h3 class="text-center text-secondary">Liste des stagiaires</h3>
-                <table class="table table-bordered" id="table">
+                <table class="table table-bordered " id="table">
                     <!-- datatable [dtOptions]="dtoptions" [dtTrigger]="dttrigger" -->
                     <thead>
                         <tr class="text-center">
@@ -13,7 +13,7 @@
                             <th>Prenom</th>
                             <th>Nom</th>
                             <th>Genre</th>
-                            <th>Date de Naissance</th>
+                            <th>DateNaiss</th>
                             <th>Nationnalité</th>
                             <th>Telephone</th>
                             <th>Adresse</th>
@@ -23,11 +23,12 @@
                             <th>Niveau</th>
                             <th>Supprimer</th>
                             <th>Modifier</th>
+                            <th>Ajouter_Stage</th>
                         </tr>
                     </thead>
 
                     <tbody *ngFor="let stagiaire of (stagiaires ?? []) | paginate : {
-                        itemsPerPage : 5,
+                        itemsPerPage : 10,
                         currentPage : page,
                         totalItems : totalLength,
                     }">
@@ -48,6 +49,7 @@
                             <td>{{stagiaire?.niveau}}</td>
                             <td><a class="btn btn-outline-danger" (click)="supprimerStagiaire(stagiaire)"><i class="fas fa-trash fa-sm fa-fw mr-2"></i></a></td>
                             <td><a class="btn btn-outline-success" [routerLink]="['/majstagiaire',stagiaire.uio]"><i class="fas fa-edit fa-sm fa-fw mr-2"></i></a></td>
+                            <td><a class="btn btn-outline-primary" [routerLink]="['/ajoutstage', stagiaire.uio]"><i class="fas fa-plus-circle"></i></a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -58,29 +60,23 @@
 
                 <h5 class="text-secondary text-center">Filtrer par Champs</h5>
                 <br>
-                <form>
-                    <div class="form-row form-group">
-                        <div class="col-md-3 mb-3">
-                            <label for="prenom">Prénom : </label>
-                            <input type="text" id="prenom" [(ngModel)]="prenom" name="prenom" (ngModelChange)="rechercherParPrenom()">
+                <form class="mb-4">
+                    <div class="form-row">
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" id="prenom" placeholder="Prenom" [(ngModel)]="prenom" name="prenom" (ngModelChange)="rechercherParPrenom()">
                         </div>
-                        
-                        <div class="col-md-3 mb-3">
-                            <label for="nom">Nom : </label>
-                            <input type="text" class="form-input" id="nom" [(ngModel)]="nom" name="nom" (ngModelChange)="rechercherParNom()">
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" id="nom" placeholder="Nom" [(ngModel)]="nom" name="nom" (ngModelChange)="rechercherParNom()">
                         </div>
-            
-                        <div class="col-md-3 mb-3">
-                            <label for="nni">Nni : </label>
-                            <input type="text" id="nni" [(ngModel)]="nni" name="nni" (ngModelChange)="rechercherParNni()">
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" id="nni" placeholder="Nni" [(ngModel)]="nni" name="nni" (ngModelChange)="rechercherParNni()">
                         </div>
-            
-                        <div class="col-md-3 mb-3">  
-                            <label for="telephone">Telephone : </label>
-                            <input type="text" id="telephone" [(ngModel)]="telephone" name="telephone" (ngModelChange)="rechercherParTelephone()">
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" id="telephone" placeholder="Telephone" [(ngModel)]="telephone" name="telephone" (ngModelChange)="rechercherParTelephone()">
                         </div>
                     </div>
                 </form>
+                
             </div>
         </div>
     </div>

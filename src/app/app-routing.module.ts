@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'majstagiaire/:uio', component:MAJStagiaireComponent},
   { path: 'stages', component: StagesComponent},
   { path: 'ajoutStages', component: AjoutStageComponent},
+  { path: 'ajoutstage/:uio', component: AjoutStageComponent},
   { path: 'majstage/:uio', component: MasstageComponent},
   { path: 'historique', component: HistoriqueComponent},
   { path: 'pageaccueil' , component: AccueilComponent},

@@ -4,7 +4,7 @@ import { Stageservice } from '../services/stage.service';
 import { Service } from '../model/service.model';
 import { Stagiaire } from '../model/stagiaire.model';
 import { StagiaireService } from '../services/stagiaire.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
@@ -24,8 +24,9 @@ export class AjoutStageComponent implements OnInit{
   idstagiaire! : number;
   idservice! : number;
   idbadge! : number;
+  currentstagiaire!: Stagiaire;
 
-  constructor (private stageservice : Stageservice, private stagiaireservice : StagiaireService, private router : Router, private fb : FormBuilder, private toastr : ToastrService) {
+  constructor (private stageservice : Stageservice, private stagiaireservice : StagiaireService, private router : Router, private fb : FormBuilder, private toastr : ToastrService, private route : ActivatedRoute) {
     
   }
 
@@ -41,6 +42,24 @@ export class AjoutStageComponent implements OnInit{
       stagiaire : ['',  [Validators.required]],
       service : ['', Validators.required],
       badge : ['', Validators.required],
+    });
+
+    this.route.params.subscribe(params => {
+      const idStagiaire = params['uio'];
+      // Utilisez idStagiaire pour récupérer les détails du stagiaire
+      this.getStagiaireById(idStagiaire);
+    });
+  }
+
+  getStagiaireById(id: number): void {
+    this.stagiaireservice.getStagiaireById(id).subscribe(stagiaire => {
+      console.log(id);
+      this.currentstagiaire = stagiaire;
+      console.log(stagiaire);
+      this.nouveauStage.stagiaire = this.currentstagiaire!;
+      this.formajout.patchValue({
+        'stagiaire': this.currentstagiaire.uio,
+      });
     });
   }
 
