@@ -27,7 +27,7 @@
                         <td>{{ badge.uio }}</td>
                         <td>{{ badge.code }}</td>
                         <td>{{ badge?.datedelivrance | date:'dd/MM/yyyy'}}</td>
-                        <td>{{ badge?.stage?.uio }}</td>
+                        <td>{{ badge?.stage?.uio }} - {{ badge?.stage?.uuid }}</td>
                         <td>{{ badge?.stage?.datedebut | date:'dd/MM/yyyy'}}</td>
                         <td>{{ badge?.stage?.datefin | date:'dd/MM/yyyy'}}</td>
                         <td>{{ getEtat(badge.stage) }}</td>

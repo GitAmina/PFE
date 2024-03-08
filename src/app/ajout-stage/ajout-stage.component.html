@@ -52,7 +52,7 @@
 
       <div class="col-md-2 mb-3">
         <label for="validationDefault05">Code Badge <span class="text-danger">*</span></label>
-        <input type="number" formControlName="badge" class="form-control" id="validationDefault05" [(ngModel)]="idbadge">
+        <input type="number" formControlName="badge" class="form-control" id="validationDefault05" [(ngModel)]="nouveauStage.codebadge">
         <small *ngIf="formajout.controls['badge'].dirty && formajout.hasError('required','badge')" class="text-danger" name="code">Le code du badge est requis</small>
       </div>
     </div>

@@ -23,8 +23,9 @@ export class AjoutStageComponent implements OnInit{
   Service! : Service;
   idstagiaire! : number;
   idservice! : number;
-  idbadge! : number;
   currentstagiaire!: Stagiaire;
+
+  idbadge = this.nouveauStage.codebadge;
 
   constructor (private stageservice : Stageservice, private stagiaireservice : StagiaireService, private router : Router, private fb : FormBuilder, private toastr : ToastrService, private route : ActivatedRoute) {
     

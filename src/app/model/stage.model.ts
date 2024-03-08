@@ -11,4 +11,5 @@ export class Stage {
     stagiaire! : Stagiaire;
     service! : Service;
     etat! : string;
+    codebadge! : number;
 }
